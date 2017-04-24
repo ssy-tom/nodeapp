@@ -60,7 +60,7 @@ left join market ma on stu.market_id=ma.id`);
         teacher_data["theClassData"] = json[5];
         teacher_data["students"] = json[6];
 
-        res.json(teacher_data);
+        res.json([teacher_data]);
 
     }).catch(function (err) {
         console.log(err)
