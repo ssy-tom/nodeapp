@@ -102,8 +102,8 @@ where t.type=1 and s.student_status=1`);
         yield change_cycle(id_obj);
         yield reset_this_cycle();
     }
-    let execute = timeGeneretor();
-    execute.next();
+    // let execute = timeGeneretor();
+    // execute.next();
 }
-ManagerTime();
+// ManagerTime();
 exports.timeUpdate = timeUpdate;
