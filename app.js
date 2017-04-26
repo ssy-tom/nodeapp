@@ -9,19 +9,31 @@ let teacher = require('./routes/teacher');
 let superManager = require('./routes/super');
 let student = require('./routes/student');
 let timeManager=require("./sql/timeUpdate");
+// let exec=require("children_process").exec;
+// check();
+// function check() {
+//   last=exec("lsof -i:80");
+//   last.on('exit',function (code) {
+//     if(code!='0'){
+//       console.log("服务已经关闭，重启中")
+//     }else{
+//       console.log("运行正常")
+//     }
+//   })
+// }
 timeManager.timeUpdate();
 
 var app = express();
 console.log(__dirname);
 // view engine setup
-app.all('*', function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
-  res.header("X-Powered-By", ' 3.2.1');
-  res.header("Content-Type", "application/json;charset=utf-8");
-  next();
-});
+// app.all('*', function (req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers", "X-Requested-With");
+//   res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
+//   res.header("X-Powered-By", ' 3.2.1');
+//   res.header("Content-Type", "application/json;charset=utf-8");
+//   next();
+// });
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 

@@ -1,9 +1,10 @@
 /**
  * Created by Administrator on 2017/4/2 0002.
  */
-let client = require('./mysql_login');
+let client = require('./mysql_login').client;
 let co = require('co');
 let makePromise = require('./mysql_login').makePromise;
+
 // var await = require('asyncawait/await');
 let teacher_data = function (res, username, profession) {
     let classExist = function () {
@@ -59,11 +60,12 @@ left join market ma on stu.market_id=ma.id`);
         teacher_data["thisTeachingCycle"] = json[4];
         teacher_data["theClassData"] = json[5];
         teacher_data["students"] = json[6];
-
+        client.end();
         res.json([teacher_data]);
 
     }).catch(function (err) {
         console.log(err)
+        client.end();
         res.send("404");
     });
 
