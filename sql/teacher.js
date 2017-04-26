@@ -60,12 +60,12 @@ left join market ma on stu.market_id=ma.id`);
         teacher_data["thisTeachingCycle"] = json[4];
         teacher_data["theClassData"] = json[5];
         teacher_data["students"] = json[6];
-        client.end();
+        // client.end();
         res.json([teacher_data]);
 
     }).catch(function (err) {
         console.log(err)
-        client.end();
+        // client.end();
         res.send("404");
     });
 
